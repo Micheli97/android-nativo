@@ -1,5 +1,6 @@
 package com.exemaple.meuprimeiroapp
 
+import ads_mobile_sdk.h4
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -31,8 +32,24 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Greeting("Paula")
+            MaterialTheme{
+                HelloWorldScreen("Paula")
+            }
         }
+    }
+}
+
+@Composable
+fun HelloWorldScreen(name: String){
+    Column(modifier = Modifier.fillMaxSize().padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,) {
+        Text(text = "Hello $name!", style = MaterialTheme.typography.titleMedium)
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = {/* DO nothing for now */ }) {
+            Text(text = "Click me")
+        }
+
     }
 }
 
