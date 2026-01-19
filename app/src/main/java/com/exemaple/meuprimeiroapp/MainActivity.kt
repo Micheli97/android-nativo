@@ -33,7 +33,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MaterialTheme{
-                HelloWorldScreen("Paula")
+                ProfileCard("Jane Doe", "Android Development and coffee enthusiast", onAction = {
+                    /* Handler click, e.g., show a toast*/
+                })
+
             }
         }
     }
