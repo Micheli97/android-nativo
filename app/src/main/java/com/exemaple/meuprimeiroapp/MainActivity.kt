@@ -31,20 +31,46 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MeuPrimeiroAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
-                    Greeting("Paula", Modifier.padding(innerPadding))
-                }
-            }
+            Greeting("Paula")
         }
     }
 }
 
+
+// Composable se integram perfeitamente com os recursos do Kotlin, permitindo o uso de condicionais
+// para mostrar ou esconder elementos da interface, loops para renderizar lista ou funções de extensão
+// para adicionar comportamentos personalizados.
+@Composable
+fun UserList(user: List<String>){
+    Column() {
+        user.forEach { user ->
+            Text(text = user)
+        }
+    }
+}
+
+
+
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
 
+    // [mutableStateOf] -. cria uma variável com estado (objeto observável)
+    // [remember] -> armazena o estado da variável em memória, para manter o valor entre recomposições
+    // Recomponsição inteligante
     var textoOriginal by remember { mutableStateOf("Bem vindo ao meu app, $name!") }
+
+    /*
+    Ao contrário do Flutter que ao chamar o setState(). reconstroi o StatefullWidget, no Compose
+    apenas a função que teve seu estado alterado é recomposta.
+
+    O Compose comparar a nova árvore de UI com a anterior e atualiza paenas os nós afetados. Isso é
+    semelhante a como o React e Flutter trabalham com atualizações de interface, mas o Compose otimiza
+    para a arquitetura  do Android. Por exemplo, se a Collumn tem multiplos compose de texto, e apenas
+    um depende do estado do nome, apenas esse texto será recomposto. Essa otimização é muito importante
+    para o desempenho do aplicativo, principalmente em interfaces complexas com centenas de elementos.
+
+    * */
 
 
     Column(
