@@ -34,7 +34,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MaterialTheme{
-                GradientCard()
+               PhotoGallery(
+                   listOf(
+                       R.drawable.ic_launcher_background to "Sunset",
+                       R.drawable.ic_launcher_foreground to "Mountain"
+                   )
+               )
 
             }
         }
