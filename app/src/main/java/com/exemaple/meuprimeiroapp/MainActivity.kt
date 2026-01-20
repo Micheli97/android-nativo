@@ -44,9 +44,7 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        Surface {
-                            Text("Light Mode Preview")
-                        }
+                        RotatingIcon()
                     }
                 }
 
