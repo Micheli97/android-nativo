@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -34,12 +35,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MaterialTheme{
-               PhotoGallery(
-                   listOf(
-                       R.drawable.ic_launcher_background to "Sunset",
-                       R.drawable.ic_launcher_foreground to "Mountain"
-                   )
-               )
+                Scaffold(){
+                    paddingValues ->
+                    Column(
+                        modifier = Modifier.fillMaxSize().padding(paddingValues),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Button({}){
+                            Text("Styled Button")
+                        }
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        DialogContent()
+                    }
+                }
 
             }
         }
