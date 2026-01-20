@@ -2,7 +2,9 @@ package com.exemaple.meuprimeiroapp
 
 import android.content.res.Configuration
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
@@ -16,6 +18,11 @@ import androidx.compose.ui.unit.sp
 
 import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -40,6 +47,9 @@ object AppColors{
 fun MyAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit) {
+    var isDark by remember {mutableStateOf(darkTheme)}
+
+
     val lightColors = lightColorScheme(
         primary = AppColors.Primary,
         secondary = AppColors.Secondary,
@@ -83,10 +93,20 @@ fun MyAppTheme(
         medium = RoundedCornerShape(12.dp),
         large = RoundedCornerShape(16.dp)
     )
+    Button(
+        onClick = {isDark = !isDark},
+        modifier = Modifier.padding(16.dp)
+    ) {
+        Text(if(isDark) "Switch to Light Mode" else "Switch to Dark Mode")
+    }
+
+    val darkTypography = Typography(
+        bodySmall = TextStyle(fontSize = 18.sp)
+    )
 
     MaterialTheme(
-        colorScheme = if(darkTheme) darkColors else lightColors,
-        typography = myTypography,
+        colorScheme = if(isDark) darkColors else lightColors,
+        typography = if(isDark) darkTypography else myTypography,
         shapes = myShapes,
         content = content
     )
