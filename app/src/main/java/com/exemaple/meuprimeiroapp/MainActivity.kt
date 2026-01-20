@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -34,7 +36,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MaterialTheme{
+            MyAppTheme(darkTheme = false){
                 Scaffold(){
                     paddingValues ->
                     Column(
@@ -42,12 +44,9 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        Button({}){
-                            Text("Styled Button")
+                        Surface {
+                            Text("Light Mode Preview")
                         }
-                        Spacer(modifier = Modifier.height(16.dp))
-
-                        DialogContent()
                     }
                 }
 

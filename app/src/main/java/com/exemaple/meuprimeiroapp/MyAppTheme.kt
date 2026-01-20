@@ -1,5 +1,7 @@
 package com.exemaple.meuprimeiroapp
 
+import android.content.res.Configuration
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
@@ -14,6 +16,7 @@ import androidx.compose.ui.unit.sp
 
 import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 
@@ -34,8 +37,10 @@ object AppColors{
     val Secondary = Color(0xFF03DAC6)
 }
 @Composable
-fun MyAppTheme(content: @Composable () -> Unit) {
-    val myColors = lightColorScheme(
+fun MyAppTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit) {
+    val lightColors = lightColorScheme(
         primary = AppColors.Primary,
         secondary = AppColors.Secondary,
         background = Color.White,
@@ -44,6 +49,18 @@ fun MyAppTheme(content: @Composable () -> Unit) {
         onBackground = Color.Black,
         onSurface = Color.Black
     )
+
+    val darkColors = darkColorScheme(
+        primary = Color(0xFFBB86FC),
+        surfaceContainer = Color(0xff03dac6),
+        background = Color(0xFF121212),
+        surface = Color(0xFF121212),
+        onPrimary = Color.Black,
+        onSecondary = Color.Black,
+        onBackground = Color.White,
+        onSurface = Color.White
+    )
+
 
     // No M3, usamos nomes como displayLarge, bodyLarge, etc.
     // Aqui foi feita uma modificação em relação ao exemplo do livro, já que estou utilizando o m3
@@ -68,7 +85,7 @@ fun MyAppTheme(content: @Composable () -> Unit) {
     )
 
     MaterialTheme(
-        colorScheme = myColors,
+        colorScheme = if(darkTheme) darkColors else lightColors,
         typography = myTypography,
         shapes = myShapes,
         content = content
@@ -83,5 +100,21 @@ fun MyAppTheme(content: @Composable () -> Unit) {
 fun DialogContent(){
     MaterialTheme(colorScheme = darkColorScheme(primary = Color.DarkGray)){
         Text("This dialog has a custom theme")
+    }
+}
+
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun DarkThemePreview(){
+    MyAppTheme{
+        DialogContent()
+    }
+}
+
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Composable
+fun LightThemePreview(){
+    MyAppTheme{
+        DialogContent()
     }
 }
