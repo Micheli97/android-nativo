@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        RegistrationForm()
+                        SearchebleList(items = listOf("Apple", "Banana", "Cherry", "Date"))
                     }
                 }
 
