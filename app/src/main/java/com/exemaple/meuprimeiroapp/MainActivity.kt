@@ -47,13 +47,7 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        CustomProgressIndicator {
-                            Icon(
-                                imageVector = Icons.Filled.Refresh,
-                                contentDescription = "Loading",
-                                tint = MaterialTheme.colorScheme.primary
-                            )
-                        }
+                       CounterScreen()
                     }
                 }
 
