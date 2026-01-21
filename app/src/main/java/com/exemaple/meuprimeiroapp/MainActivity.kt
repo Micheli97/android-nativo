@@ -47,7 +47,9 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                       CounterScreen()
+                       Surface() {
+                           TodoScreen()
+                       }
                     }
                 }
 
