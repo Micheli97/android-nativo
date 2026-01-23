@@ -32,6 +32,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.exemaple.meuprimeiroapp.form.ValidateForm
 import com.exemaple.meuprimeiroapp.liveSearch.LiveSearch
 import com.exemaple.meuprimeiroapp.ui.theme.MeuPrimeiroAppTheme
 
@@ -49,7 +50,7 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center
                     ) {
                        Surface() {
-                           LiveSearch()
+                           ValidateForm()
                        }
                     }
                 }
