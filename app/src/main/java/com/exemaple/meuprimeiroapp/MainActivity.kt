@@ -32,10 +32,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.meuprimeiroapp.weatherapp.WeatherScreen
 import com.exemaple.meuprimeiroapp.form.ValidateForm
 import com.exemaple.meuprimeiroapp.liveSearch.LiveSearch
 import com.exemaple.meuprimeiroapp.ui.theme.MeuPrimeiroAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +53,7 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center
                     ) {
                        Surface() {
-                           ValidateForm()
+                           WeatherScreen()
                        }
                     }
                 }

@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt.android)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -50,6 +52,11 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.compose.icons.extended)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.benchmark.common)
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
