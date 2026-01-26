@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import com.example.meuprimeiroapp.weatherapp.WeatherScreen
 import com.exemaple.meuprimeiroapp.form.ValidateForm
 import com.exemaple.meuprimeiroapp.gerenciamento.estados.complexos.MultiScreenApp
+import com.exemaple.meuprimeiroapp.gerenciamento.estados.complexos.ShoppingCartScreen
 import com.exemaple.meuprimeiroapp.liveSearch.LiveSearch
 import com.exemaple.meuprimeiroapp.offline.NewsFeedScreen
 import com.exemaple.meuprimeiroapp.ui.theme.MeuPrimeiroAppTheme
@@ -55,7 +56,7 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center
                     ) {
                        Surface() {
-                           MultiScreenApp()
+                           ShoppingCartScreen()
                        }
                     }
                 }
