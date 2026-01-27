@@ -33,6 +33,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.meuprimeiroapp.weatherapp.WeatherScreen
+import com.exemaple.meuprimeiroapp.animations.AnimatedList
 import com.exemaple.meuprimeiroapp.animations.ScalingButton
 import com.exemaple.meuprimeiroapp.form.ValidateForm
 import com.exemaple.meuprimeiroapp.gerenciamento.estados.complexos.MultiScreenApp
@@ -58,7 +59,7 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center
                     ) {
                        Surface() {
-                           ScalingButton()
+                           AnimatedList()
                        }
                     }
                 }
